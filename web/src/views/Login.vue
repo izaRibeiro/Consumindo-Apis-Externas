@@ -1,72 +1,77 @@
 <template>
-  <section class="login">
-    <h1>Login</h1>
-    <form>
-      <label for="email">Email</label>
-      <input type="email" name="email" id="email" v-model="login.email" />
-      <label for="senha">Senha</label>
-      <input type="password" name="senha" id="senha" v-model="login.senha" />
-    </form>
-    <facebook-sign-in></facebook-sign-in>
-  </section>
+    <section class="login">
+        <h1>Login</h1>
+        <form>
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" v-model="login.email" />
+            <label for="senha">Senha</label>
+            <input
+                type="password"
+                name="senha"
+                id="senha"
+                v-model="login.senha"
+            />
+        </form>
+        <facebook-sign-in></facebook-sign-in>
+    </section>
 </template>
 
 <script>
-import FacebookSignIn from "../components/FacebookSignIn";
+import FacebookSignIn from "../components/FacebookSignIn.vue";
 
 export default {
-  name: "Login",
-  components: {
-    FacebookSignIn,
-  },
-  data() {
-    return {
-      login: {
-        email: "",
-        senha: "",
-      },
-    };
-  },
-  methods: {
-    logar() {},
-  },
+    name: "Login",
+    components: {
+        FacebookSignIn,
+    },
+    data() {
+        return {
+            login: {
+                email: "",
+                senha: "",
+            },
+        };
+    },
+    methods: {
+        logar() {},
+    },
 };
 </script>
 
 <style scoped>
 .login {
-  max-width: 500px;
-  margin: 0 auto;
-  padding: 0 20px;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 h1 {
-  text-align: center;
-  font-size: 2rem;
-  margin-top: 40px;
-  color: #2cdc6d;
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 40px;
+    color: #2cdc6d;
 }
 
 form {
-  display: grid;
+    display: grid;
 }
 
 .btn {
-  width: 100%;
-  max-width: 200px;
-  margin-left: auto;
-  margin-right: auto;
+    width: 100%;
+    max-width: 200px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 input,
 textarea {
-  border-radius: 4px;
-  border: 1px solid white;
-  padding: 15px;
-  box-shadow: 0 3px 3px rgba(30, 60, 90, 0.1);
-  transition: all 0.3s;
-  font-size: 1rem;
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  margin-bottom: 15px;
+    border-radius: 4px;
+    border: 1px solid white;
+    padding: 15px;
+    box-shadow: 0 3px 3px rgba(30, 60, 90, 0.1);
+    transition: all 0.3s;
+    font-size: 1rem;
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
+    margin-bottom: 15px;
 }
 </style>
