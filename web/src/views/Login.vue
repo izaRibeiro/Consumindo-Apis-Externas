@@ -6,15 +6,19 @@
       <input type="email" name="email" id="email" v-model="login.email" />
       <label for="senha">Senha</label>
       <input type="password" name="senha" id="senha" v-model="login.senha" />
-      <button class="btn" @click.prevent="logar">Logar</button>
     </form>
+    <facebook-sign-in></facebook-sign-in>
   </section>
 </template>
 
 <script>
+import FacebookSignIn from "../components/FacebookSignIn";
+
 export default {
   name: "Login",
-  components: {},
+  components: {
+    FacebookSignIn,
+  },
   data() {
     return {
       login: {
@@ -40,7 +44,7 @@ h1 {
   text-align: center;
   font-size: 2rem;
   margin-top: 40px;
-  color: #2CDC6D;
+  color: #2cdc6d;
 }
 
 form {
@@ -64,25 +68,5 @@ textarea {
   font-size: 1rem;
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   margin-bottom: 15px;
-}
-
-.btn {
-  display: block;
-  padding: 10px 30px;
-  background: #2CDC6D;
-  border-radius: 4px;
-  color: #fff;
-  text-align: center;
-  font-size: 1rem;
-  box-shadow: 0 4px 8px rgba(30, 60, 90, 0.2);
-  transition: all 0.3s;
-  border: none;
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  cursor: pointer;
-}
-
-.btn:hover {
-  background: #00FF5E;
-  transform: scale(1.1);
 }
 </style>
