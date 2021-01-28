@@ -12,16 +12,21 @@
                 v-model="login.senha"
             />
         </form>
-        <facebook-sign-in></facebook-sign-in>
+        <div id="login-externo">
+            <GoogleSignIn></GoogleSignIn>
+            <facebook-sign-in></facebook-sign-in>
+        </div>
     </section>
 </template>
 
 <script>
 import FacebookSignIn from "../components/FacebookSignIn.vue";
+import GoogleSignIn from "../components/GoogleSignIn.vue";
 
 export default {
     name: "Login",
     components: {
+        GoogleSignIn,
         FacebookSignIn,
     },
     data() {
@@ -73,5 +78,10 @@ textarea {
     font-size: 1rem;
     font-family: "Avenir", Helvetica, Arial, sans-serif;
     margin-bottom: 15px;
+}
+
+#login-externo {
+    display: flex;
+    justify-content: space-around;
 }
 </style>
