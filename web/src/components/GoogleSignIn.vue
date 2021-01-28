@@ -21,8 +21,9 @@ export default {
     },
     methods: {
         onSignInSuccess(googleUser) {
-            const profile = googleUser.getBasicProfile(); // etc etc
+            const profile = googleUser.getBasicProfile();
             console.warn(profile);
+            this.$router.push("/index-cliente");
         },
         onSignInError(error) {
             console.warn("OH NOES", error);

@@ -30,7 +30,8 @@ export default {
                     this.personalID = userInformation.id;
                     this.email = userInformation.email;
                     this.name = userInformation.name;
-                }
+                },
+                this.$router.push("/index-cliente")
             );
         },
         sdkLoaded(payload) {

@@ -11,6 +11,7 @@
                 id="senha"
                 v-model="login.senha"
             />
+            <button class="button" @click.prevent="logar">Logar</button>
         </form>
         <div id="login-externo">
             <GoogleSignIn></GoogleSignIn>
@@ -38,7 +39,9 @@ export default {
         };
     },
     methods: {
-        logar() {},
+        logar() {
+            this.$router.push("/index-cliente");
+        },
     },
 };
 </script>
@@ -54,16 +57,16 @@ h1 {
     text-align: center;
     font-size: 2rem;
     margin-top: 40px;
-    color: #2cdc6d;
+    color: rgba(131, 113, 245, 0.952);
 }
 
 form {
     display: grid;
 }
 
-.btn {
+.button {
     width: 100%;
-    max-width: 200px;
+    max-width: 100px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -83,5 +86,25 @@ textarea {
 #login-externo {
     display: flex;
     justify-content: space-around;
+}
+
+.button {
+    display: block;
+    padding: 10px 30px;
+    background: rgba(131, 113, 245, 0.952);
+    border-radius: 4px;
+    color: #fff;
+    text-align: center;
+    font-size: 1rem;
+    box-shadow: 0 4px 8px rgba(30, 60, 90, 0.2);
+    transition: all 0.3s;
+    border: none;
+    font-family: "Avenir", Helvetica, Arial, sans-serif;
+    cursor: pointer;
+}
+
+.button:hover {
+    background: rgb(102, 85, 221);
+    transform: scale(1.1);
 }
 </style>
