@@ -25,6 +25,7 @@ export default {
             user: {
                 nome: "",
                 codigo: "",
+                origem: "Facebook",
             },
         };
     },

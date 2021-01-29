@@ -36,6 +36,7 @@ export default {
             user: {
                 nome: "",
                 codigo: "",
+                origem: "Aplicação",
             },
         };
     },
