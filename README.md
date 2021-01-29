@@ -3,7 +3,7 @@
 Tal projeto foi desenvolvido em Vue e Node a fim de consumir algumas APIS externas. 
 
 Para a execução do back, basta rodar o comando `npm run dev`
-.Enquanto para o front, é preciso rodar o `npm run server`.
+.Enquanto para o front, é preciso rodar o `npm run serve`.
 
 A principio, é possível realizar login/cadastro de três formas: 
 <ul>

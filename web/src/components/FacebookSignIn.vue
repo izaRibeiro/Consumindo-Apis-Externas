@@ -1,7 +1,7 @@
 <template>
     <div>
         <facebook-login
-            class="button"
+            class="button-facebook"
             appId="733998527222513"
             @login="onLogin"
             @logout="onLogout"
@@ -63,7 +63,7 @@ export default {
 </script>
 
 <style>
-.button {
+.button-faccebook {
     margin-top: 30px;
 }
 </style>

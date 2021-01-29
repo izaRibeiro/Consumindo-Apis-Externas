@@ -4,6 +4,7 @@ import Vuetify from "vuetify";
 import App from "./App.vue";
 import router from "./router";
 import "vuetify/dist/vuetify.min.css";
+import "./assets/global.css";
 
 Vue.use(GSignInButton);
 Vue.use(Vuetify);

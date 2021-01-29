@@ -1,7 +1,9 @@
 <template>
     <section class="home">
         <h1>Home</h1>
-        <router-link class="btn" to="/login"> Login </router-link>
+        <router-link class="btn" to="/login">
+            <button class="button">Login</button>
+        </router-link>
     </section>
 </template>
 
@@ -19,4 +21,9 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.home {
+    margin-left: 50%;
+    margin-top: 15%;
+}
+</style>
