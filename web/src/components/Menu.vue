@@ -27,7 +27,10 @@ export default {
             items: [
                 { text: "Meus Dados", link: "/index-cliente" },
                 { text: "Listar Usuários", link: "/list-users" },
-                { text: "Star Wars", link: "/" },
+                { text: "Filmes", link: "/films-star-wars" },
+                { text: "Planetas", link: "/planets-star-wars" },
+                { text: "Espécies", link: "/species-star-wars" },
+                { text: "Naves", link: "/starships-star-wars" },
                 { text: "Sair", link: "/" },
             ],
         };

@@ -32,6 +32,7 @@ export default {
             User.store(this.user).then(() => {
                 this.$router.push("/index-cliente");
             });
+            localStorage.setItem("usuario", JSON.stringify(this.user));
         },
         onSignInError(error) {
             console.warn("Ocorreu um erro na aplicação", error);

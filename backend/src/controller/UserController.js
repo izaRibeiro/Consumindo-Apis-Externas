@@ -9,11 +9,18 @@ module.exports = {
     async store(request, response) {
         const { nome, codigo } = request.body;
 
-        const user = await User.create({
-            nome,
-            codigo,
-        });
+        User.findOne(request.body, async (error, findUser) => {
+            let user;
 
-        return response.json(user);
+            if (findUser) {
+                user = findUser;
+            } else {
+                user = await User.create({
+                    nome,
+                    codigo,
+                });
+            }
+            return response.json(user);
+        });
     },
 };

@@ -61,7 +61,6 @@ h1 {
     text-align: center;
     font-size: 2rem;
     margin-top: 40px;
-    color: rgba(131, 113, 245, 0.952);
 }
 
 form {
@@ -108,7 +107,7 @@ textarea {
 }
 
 .button:hover {
-    background: rgb(102, 85, 221);
+    background: rgb(101, 80, 236);
     transform: scale(1.1);
 }
 </style>

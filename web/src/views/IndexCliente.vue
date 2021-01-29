@@ -4,8 +4,11 @@
         <div class="content">
             <h1>Seja bem vindo {{ user.nome }}</h1>
             <h4>
-                Essa é a página inicial, através do menu lateral é possível
-                explorar outras partes do sistema.
+                <p>
+                    Essa é a página inicial, através do menu lateral é possível
+                    explorar outras partes do sistema.
+                </p>
+                <p>Seu código de perfil é: {{ user.codigo }}</p>
             </h4>
         </div>
     </section>
