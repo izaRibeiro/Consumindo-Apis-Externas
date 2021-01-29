@@ -10,6 +10,8 @@
 </template>
 
 <script>
+import User from "../services/users";
+
 export default {
     data() {
         const CLIENT_ID = "561729757161-b8t9odevo0k9cv9itb2ubp12f5gdo5o6";
@@ -17,16 +19,22 @@ export default {
             googleSignInParams: {
                 client_id: `${CLIENT_ID}.apps.googleusercontent.com`,
             },
+            user: {
+                nome: "",
+                email: "",
+            },
         };
     },
     methods: {
         onSignInSuccess(googleUser) {
-            const profile = googleUser.getBasicProfile();
-            console.warn(profile);
-            this.$router.push("/index-cliente");
+            this.user.nome = googleUser.getBasicProfile().sd;
+            this.user.email = googleUser.getBasicProfile().JR;
+            User.store(this.user).then(() => {
+                this.$router.push("/index-cliente");
+            });
         },
         onSignInError(error) {
-            console.warn("OH NOES", error);
+            console.warn("Ocorreu um erro na aplicação", error);
         },
     },
 };

@@ -24,7 +24,7 @@ export default {
 .index-cliente {
     display: grid;
     margin: 30px;
-    grid-template-columns: 1fr 4fr;
+    grid-template-columns: 0.5fr 4fr;
     grid-template-rows: auto;
 }
 </style>

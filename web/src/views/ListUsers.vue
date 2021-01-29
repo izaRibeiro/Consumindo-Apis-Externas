@@ -7,14 +7,14 @@
                 <template v-slot:default>
                     <thead>
                         <tr>
+                            <th class="text-left">Código do Perfil</th>
                             <th class="text-left">Nome</th>
-                            <th class="text-left">E-mail</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr v-for="user in users" :key="user.id">
-                            <td>{{ user.nome }}</td>
                             <td>{{ user.email }}</td>
+                            <td>{{ user.nome }}</td>
                         </tr>
                     </tbody>
                 </template>
@@ -50,7 +50,7 @@ export default {
 .index-cliente {
     display: grid;
     margin: 30px;
-    grid-template-columns: 1fr 4fr;
+    grid-template-columns: 0.5fr 4fr;
     grid-template-rows: auto;
 }
 </style>

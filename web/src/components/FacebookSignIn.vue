@@ -13,25 +13,35 @@
 
 <script>
 import facebookLogin from "facebook-login-vuejs";
+import User from "../services/users";
 
 export default {
     name: "facebook-sign-in",
     components: {
         facebookLogin,
     },
+    data() {
+        return {
+            user: {
+                nome: "",
+                email: "",
+            },
+        };
+    },
     methods: {
         getUserData() {
             this.FB.api(
                 "/me",
                 "GET",
-                { fields: "id,name,email" },
+                { fields: "email ,name" },
                 (userInformation) => {
-                    console.warn("data api", userInformation);
-                    this.personalID = userInformation.id;
-                    this.email = userInformation.email;
-                    this.name = userInformation.name;
-                },
-                this.$router.push("/index-cliente")
+                    this.user.nome = userInformation.name;
+                    this.user.email = userInformation.id;
+
+                    User.store(this.user).then(() => {
+                        this.$router.push("/index-cliente");
+                    });
+                }
             );
         },
         sdkLoaded(payload) {

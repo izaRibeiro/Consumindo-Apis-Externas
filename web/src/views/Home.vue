@@ -1,5 +1,5 @@
 <template>
-    <section class="list-users">
+    <section class="home">
         <h1>Home</h1>
         <router-link class="btn" to="/login"> Login </router-link>
     </section>

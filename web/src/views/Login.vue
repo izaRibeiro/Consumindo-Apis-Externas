@@ -2,15 +2,10 @@
     <section class="login">
         <h1>Login</h1>
         <form>
-            <label for="email">Email</label>
-            <input type="email" name="email" id="email" v-model="login.email" />
-            <label for="senha">Senha</label>
-            <input
-                type="password"
-                name="senha"
-                id="senha"
-                v-model="login.senha"
-            />
+            <label for="email">Nome</label>
+            <input type="text" name="email" id="email" v-model="user.nome" />
+            <label for="senha">E-mail</label>
+            <input type="email" name="senha" id="senha" v-model="user.email" />
             <button class="button" @click.prevent="logar">Logar</button>
         </form>
         <div id="login-externo">
@@ -23,6 +18,7 @@
 <script>
 import FacebookSignIn from "../components/FacebookSignIn.vue";
 import GoogleSignIn from "../components/GoogleSignIn.vue";
+import User from "../services/users";
 
 export default {
     name: "Login",
@@ -32,15 +28,17 @@ export default {
     },
     data() {
         return {
-            login: {
+            user: {
+                nome: "",
                 email: "",
-                senha: "",
             },
         };
     },
     methods: {
         logar() {
-            this.$router.push("/index-cliente");
+            User.store(this.user).then(() => {
+                this.$router.push("/index-cliente");
+            });
         },
     },
 };
