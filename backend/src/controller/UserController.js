@@ -7,11 +7,11 @@ module.exports = {
         return response.json(findUser);
     },
     async store(request, response) {
-        const { nome, email } = request.body;
+        const { nome, codigo } = request.body;
 
         const user = await User.create({
             nome,
-            email,
+            codigo,
         });
 
         return response.json(user);

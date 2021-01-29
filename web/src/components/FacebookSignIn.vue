@@ -24,7 +24,7 @@ export default {
         return {
             user: {
                 nome: "",
-                email: "",
+                codigo: "",
             },
         };
     },
@@ -33,10 +33,10 @@ export default {
             this.FB.api(
                 "/me",
                 "GET",
-                { fields: "email ,name" },
+                { fields: "name, id" },
                 (userInformation) => {
                     this.user.nome = userInformation.name;
-                    this.user.email = userInformation.id;
+                    this.user.codigo = userInformation.id;
 
                     User.store(this.user).then(() => {
                         this.$router.push("/index-cliente");

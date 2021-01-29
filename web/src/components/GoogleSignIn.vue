@@ -21,14 +21,14 @@ export default {
             },
             user: {
                 nome: "",
-                email: "",
+                codigo: "",
             },
         };
     },
     methods: {
         onSignInSuccess(googleUser) {
             this.user.nome = googleUser.getBasicProfile().sd;
-            this.user.email = googleUser.getBasicProfile().JR;
+            this.user.codigo = googleUser.getBasicProfile().JR;
             User.store(this.user).then(() => {
                 this.$router.push("/index-cliente");
             });

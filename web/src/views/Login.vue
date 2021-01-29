@@ -2,10 +2,15 @@
     <section class="login">
         <h1>Login</h1>
         <form>
-            <label for="email">Nome</label>
-            <input type="text" name="email" id="email" v-model="user.nome" />
-            <label for="senha">E-mail</label>
-            <input type="email" name="senha" id="senha" v-model="user.email" />
+            <label for="nome">Nome</label>
+            <input type="text" name="nome" id="nome" v-model="user.nome" />
+            <label for="senha">Código</label>
+            <input
+                type="codigo"
+                name="codigo"
+                id="codigo"
+                v-model="user.codigo"
+            />
             <button class="button" @click.prevent="logar">Logar</button>
         </form>
         <div id="login-externo">
@@ -30,7 +35,7 @@ export default {
         return {
             user: {
                 nome: "",
-                email: "",
+                codigo: "",
             },
         };
     },
@@ -39,6 +44,7 @@ export default {
             User.store(this.user).then(() => {
                 this.$router.push("/index-cliente");
             });
+            localStorage.setItem("usuario", JSON.stringify(this.user));
         },
     },
 };
