@@ -40,9 +40,13 @@ export default {
         };
     },
     mounted() {
-        StarWars.films().then((response) => {
-            this.films = response.data.results;
-        });
+        StarWars.films()
+            .then((response) => {
+                this.films = response.data.results;
+            })
+            .catch((error) => {
+                console.warn(error);
+            });
     },
     methods: {},
 };

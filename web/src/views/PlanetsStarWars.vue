@@ -42,9 +42,13 @@ export default {
         };
     },
     mounted() {
-        StarWars.planets().then((response) => {
-            this.planets = response.data.results;
-        });
+        StarWars.planets()
+            .then((response) => {
+                this.planets = response.data.results;
+            })
+            .catch((error) => {
+                console.warn(error);
+            });
     },
     methods: {},
 };

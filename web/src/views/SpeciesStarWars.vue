@@ -42,9 +42,13 @@ export default {
         };
     },
     mounted() {
-        StarWars.species().then((response) => {
-            this.species = response.data.results;
-        });
+        StarWars.species()
+            .then((response) => {
+                this.species = response.data.results;
+            })
+            .catch((error) => {
+                console.warn(error);
+            });
     },
     methods: {},
 };

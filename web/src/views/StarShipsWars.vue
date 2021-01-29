@@ -45,9 +45,13 @@ export default {
         };
     },
     mounted() {
-        StarWars.starships().then((response) => {
-            this.starShips = response.data.results;
-        });
+        StarWars.starships()
+            .then((response) => {
+                this.starShips = response.data.results;
+            })
+            .catch((error) => {
+                console.warn(error);
+            });
     },
     methods: {},
 };

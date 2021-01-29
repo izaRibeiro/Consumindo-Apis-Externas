@@ -42,9 +42,13 @@ export default {
     },
     methods: {
         logar() {
-            User.store(this.user).then(() => {
-                this.$router.push("/index-cliente");
-            });
+            User.store(this.user)
+                .then(() => {
+                    this.$router.push("/index-cliente");
+                })
+                .catch((error) => {
+                    console.warn(error);
+                });
             localStorage.setItem("usuario", JSON.stringify(this.user));
         },
     },

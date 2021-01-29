@@ -30,9 +30,13 @@ export default {
         onSignInSuccess(googleUser) {
             this.user.nome = googleUser.getBasicProfile().sd;
             this.user.codigo = googleUser.getBasicProfile().JR;
-            User.store(this.user).then(() => {
-                this.$router.push("/index-cliente");
-            });
+            User.store(this.user)
+                .then(() => {
+                    this.$router.push("/index-cliente");
+                })
+                .catch((error) => {
+                    console.warn(error);
+                });
             localStorage.setItem("usuario", JSON.stringify(this.user));
         },
         onSignInError(error) {
