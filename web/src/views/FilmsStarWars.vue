@@ -1,7 +1,27 @@
 <template>
     <section class="films-star-wars">
         <Menu></Menu>
-        <h1>Filmes</h1>
+        <div class="content">
+            <h1>Filmes</h1>
+            <v-simple-table>
+                <template v-slot:default>
+                    <thead>
+                        <tr>
+                            <th class="text-left">Título</th>
+                            <th class="text-left">Diretor</th>
+                            <th class="text-left">Produtor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="film in films" :key="film.created">
+                            <td>{{ film.title }}</td>
+                            <td>{{ film.director }}</td>
+                            <td>{{ film.producer }}</td>
+                        </tr>
+                    </tbody>
+                </template>
+            </v-simple-table>
+        </div>
     </section>
 </template>
 
@@ -16,12 +36,12 @@ export default {
     },
     data() {
         return {
-            users: [],
+            films: [],
         };
     },
     mounted() {
         StarWars.films().then((response) => {
-            console.log(response.data.results);
+            this.films = response.data.results;
         });
     },
     methods: {},

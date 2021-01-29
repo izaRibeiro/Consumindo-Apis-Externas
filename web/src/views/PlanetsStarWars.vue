@@ -1,7 +1,29 @@
 <template>
     <section class="films-star-wars">
         <Menu></Menu>
-        <h1>Planetas</h1>
+        <div class="content">
+            <h1>Planetas</h1>
+            <v-simple-table>
+                <template v-slot:default>
+                    <thead>
+                        <tr>
+                            <th class="text-left">Nome</th>
+                            <th class="text-left">Gravidade</th>
+                            <th class="text-left">Terreno</th>
+                            <th class="text-left">Clima</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="planet in planets" :key="planet.created">
+                            <td>{{ planet.name }}</td>
+                            <td>{{ planet.gravity }}</td>
+                            <td>{{ planet.terrain }}</td>
+                            <td>{{ planet.climate }}</td>
+                        </tr>
+                    </tbody>
+                </template>
+            </v-simple-table>
+        </div>
     </section>
 </template>
 
@@ -16,12 +38,12 @@ export default {
     },
     data() {
         return {
-            users: [],
+            planets: [],
         };
     },
     mounted() {
         StarWars.planets().then((response) => {
-            console.log(response.data.results);
+            this.planets = response.data.results;
         });
     },
     methods: {},

@@ -1,7 +1,32 @@
 <template>
     <section class="films-star-wars">
         <Menu></Menu>
-        <h1>Espaçonaves</h1>
+        <div class="content">
+            <h1>Espaçonaves</h1>
+            <v-simple-table>
+                <template v-slot:default>
+                    <thead>
+                        <tr>
+                            <th class="text-left">Nome</th>
+                            <th class="text-left">Modelo</th>
+                            <th class="text-left">Número de Passageiros</th>
+                            <th class="text-left">Custo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr
+                            v-for="starShip in starShips"
+                            :key="starShip.created"
+                        >
+                            <td>{{ starShip.name }}</td>
+                            <td>{{ starShip.model }}</td>
+                            <td>{{ starShip.passengers }}</td>
+                            <td>{{ starShip.cost_in_credits }}</td>
+                        </tr>
+                    </tbody>
+                </template>
+            </v-simple-table>
+        </div>
     </section>
 </template>
 
@@ -16,12 +41,12 @@ export default {
     },
     data() {
         return {
-            users: [],
+            starShips: [],
         };
     },
     mounted() {
         StarWars.starships().then((response) => {
-            console.log(response.data.results);
+            this.starShips = response.data.results;
         });
     },
     methods: {},
